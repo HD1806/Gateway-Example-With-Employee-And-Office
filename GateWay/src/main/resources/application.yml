@@ -1,0 +1,15 @@
+server:
+ port: 8084
+ 
+spring:
+  cloud:
+    gateway:
+      routes:
+         - id: Office
+           uri: http://localhost:8082
+           predicates:
+             - Path=/office/**
+         - id: Employee
+           uri: http://localhost:8083
+           predicates:
+             - Path=/employee/**
